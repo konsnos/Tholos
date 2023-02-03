@@ -1,0 +1,657 @@
+
+
+VIOSO Unity Plugin loaded
+VIOSO Unity Plugin PluginLoad
+ Loading VIOSOWarpBlend ...
+Process location: C:\Program Files\Unity\Hub\Editor\2021.2.8f1\Editor\Unity.exe
+Plugin location: C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\VIOSO_Plugin64.dll
+Try VIOSOWarpBlend location: C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\VIOSOWarpBlend64.dll
+14:26:15 Warper create issued "right" as #1
+14:26:15 -VIOSO WARP BLEND API-
+
+14:26:15  D3D11 - Device found.
+
+14:26:15 Warper create issued "left" as #2
+14:26:15  D3D11 - Device found.
+
+14:26:15 Warper create issued "back" as #3
+14:26:15  D3D11 - Device found.
+
+14:26:15 2023/02/02 VIOSOWarpBlend API 1.4.0.7332.
+
+14:26:15 C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\VIOSOWarpBlend64.dll.
+
+14:26:15 DX11-Warper "front" created. Logging level is 2
+Evaluated parameters from
+C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\VIOSOWarpBlend.ini:
+calibFile=UE_F.vwf
+calibIndex=4
+bTurnWithView=1
+bDoNotBlend=0
+eyePointProvider=
+eyePointProviderParam=sinewave
+eye=[0.00000, 0.00000, 0.00000]
+near=0.15000
+far=1000.00000
+bBicubic=0
+bUseGL110=0
+bPartialInput=0
+splice=0
+trans=[1000.00000, 0.00000, 0.00000, 0.00000; 0.00000, 1000.00000, 0.00000, 0.00000; 0.00000, 0.00000, -1000.00000, 0.00000; 0.00000, 0.00000, 0.00000, 1.00000]
+autoViewC=1.00000;
+bAutoView=1;
+dir=[0.00000, 0.00000, 0.00000]
+fov=[35.00000, 30.00000, 35.00000, 30.00000]
+screen=2.00000
+optimalRes=[0, 0]
+optimalRect=[0, 0, 0, 0]
+port=0
+address=0.0.0.0
+mouseMode=0
+
+14:26:15 Open "C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\UE_F.vwf"...
+
+14:26:15 File found and openend.
+
+14:26:15 File contains 15 chunks.
+
+14:26:15 Load warp map 0...
+
+14:26:15 Warper create issued "top" as #4
+14:26:15  D3D11 - Device found.
+
+14:26:15 Warp map successfully loaded, new dataset (1) 2560x1600 created.
+
+14:26:15 Load bitmap for dataset 1...
+
+14:26:15 Blend image set.
+
+14:26:15 Load bitmap for dataset 1...
+
+14:26:15 Black image set.
+
+14:26:15 Load warp map 1...
+
+14:26:15 Warp map successfully loaded, new dataset (2) 2560x1600 created.
+
+14:26:15 Load bitmap for dataset 2...
+
+14:26:15 Blend image set.
+
+14:26:15 Load bitmap for dataset 2...
+
+14:26:15 Black image set.
+
+14:26:15 Load warp map 2...
+
+14:26:15 Warp map successfully loaded, new dataset (3) 2560x1600 created.
+
+14:26:15 Load bitmap for dataset 3...
+
+14:26:15 Blend image set.
+
+14:26:15 Load bitmap for dataset 3...
+
+14:26:15 Black image set.
+
+14:26:15 Load warp map 3...
+
+14:26:15 Warp map successfully loaded, new dataset (4) 2560x1600 created.
+
+14:26:15 Load bitmap for dataset 4...
+
+14:26:15 Blend image set.
+
+14:26:15 Load bitmap for dataset 4...
+
+14:26:15 Black image set.
+
+14:26:15 Load warp map 4...
+
+14:26:15 Warp map successfully loaded, new dataset (5) 2560x1600 created.
+
+14:26:15 Load bitmap for dataset 5...
+
+14:26:15 Blend image set.
+
+14:26:15 Load bitmap for dataset 5...
+
+14:26:15 Black image set.
+
+14:26:15 LoadVWF: Successfully added 5 datasets to the mappings set.
+
+14:26:15 3D data found in mapping. Using DYNAMIC EYE settings.
+
+14:26:15 left-handedness detected.
+
+14:26:15 INFO: AutoView mapping display corners (-4003.7729,-1172.2220,-5935.1934)-(5003.8623,-5145.2363,-1059.0524).
+
+14:26:15 INFO: AutoView for channel [front] yields:
+dir=[-49.924461, 0.261008, -0.484996]
+fov=[48.054432, 42.324100, 47.209820, 41.205399]
+screenDist=4.624255
+optimalRes=[4613, 1634]
+optimalRect=[0, 0, 4613, 1634]
+handedness=left
+borderFitError=[1.559762%, 9.805654%, 0.681226%, 6.073582%]
+
+14:26:15 INFO: Output buffer found. Viewport is 535x664.
+
+14:26:15 SUCCESS: DX11-Warper initialized.
+
+14:26:15 Successfully created warper #0
+
+14:26:15 -VIOSO WARP BLEND API-
+
+14:26:15 2023/02/02 VIOSOWarpBlend API 1.4.0.7332.
+
+14:26:15 C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\VIOSOWarpBlend64.dll.
+
+14:26:15 DX11-Warper "right" created. Logging level is 2
+Evaluated parameters from
+C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\VIOSOWarpBlend.ini:
+calibFile=UE_F.vwf
+calibIndex=0
+bTurnWithView=1
+bDoNotBlend=0
+eyePointProvider=
+eyePointProviderParam=sinewave
+eye=[0.00000, 0.00000, 0.00000]
+near=0.15000
+far=1000.00000
+bBicubic=0
+bUseGL110=0
+bPartialInput=0
+splice=0
+trans=[1000.00000, 0.00000, 0.00000, 0.00000; 0.00000, 1000.00000, 0.00000, 0.00000; 0.00000, 0.00000, -1000.00000, 0.00000; 0.00000, 0.00000, 0.00000, 1.00000]
+autoViewC=1.00000;
+bAutoView=1;
+dir=[0.00000, 0.00000, 0.00000]
+fov=[35.00000, 30.00000, 35.00000, 30.00000]
+screen=2.00000
+optimalRes=[0, 0]
+optimalRect=[0, 0, 0, 0]
+port=0
+address=0.0.0.0
+mouseMode=0
+
+14:26:15 Open "C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\UE_F.vwf"...
+
+14:26:15 File found and openend.
+
+14:26:15 File contains 15 chunks.
+
+14:26:15 Load warp map 0...
+
+14:26:15 Warp map successfully loaded, new dataset (1) 2560x1600 created.
+
+14:26:15 Load bitmap for dataset 1...
+
+14:26:15 Blend image set.
+
+14:26:15 Load bitmap for dataset 1...
+
+14:26:15 Black image set.
+
+14:26:15 Load warp map 1...
+
+14:26:15 Warp map successfully loaded, new dataset (2) 2560x1600 created.
+
+14:26:15 Load bitmap for dataset 2...
+
+14:26:15 Blend image set.
+
+14:26:15 Load bitmap for dataset 2...
+
+14:26:15 Black image set.
+
+14:26:15 Load warp map 2...
+
+14:26:16 Warp map successfully loaded, new dataset (3) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 3...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 3...
+
+14:26:16 Black image set.
+
+14:26:16 Load warp map 3...
+
+14:26:16 Warp map successfully loaded, new dataset (4) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 4...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 4...
+
+14:26:16 Black image set.
+
+14:26:16 Load warp map 4...
+
+14:26:16 Warp map successfully loaded, new dataset (5) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 5...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 5...
+
+14:26:16 Black image set.
+
+14:26:16 LoadVWF: Successfully added 5 datasets to the mappings set.
+
+14:26:16 3D data found in mapping. Using DYNAMIC EYE settings.
+
+14:26:16 left-handedness detected.
+
+14:26:16 INFO: AutoView mapping display corners (926.3153,-4239.8818,-5813.4985)-(5344.7158,4803.9019,-1001.0931).
+
+14:26:16 INFO: AutoView for channel [right] yields:
+dir=[-49.980450, -0.310615, -88.036308]
+fov=[52.780361, 42.707329, 48.697315, 45.380768]
+screenDist=4.423900
+optimalRes=[5179, 1655]
+optimalRect=[0, 0, 5179, 1655]
+handedness=left
+borderFitError=[6.626502%, 8.642076%, -0.347265%, 7.917503%]
+
+14:26:16 INFO: Output buffer found. Viewport is 535x664.
+
+14:26:16 SUCCESS: DX11-Warper initialized.
+
+14:26:16 Successfully created warper #1
+
+14:26:16 -VIOSO WARP BLEND API-
+
+14:26:16 2023/02/02 VIOSOWarpBlend API 1.4.0.7332.
+
+14:26:16 C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\VIOSOWarpBlend64.dll.
+
+14:26:16 DX11-Warper "left" created. Logging level is 2
+Evaluated parameters from
+C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\VIOSOWarpBlend.ini:
+calibFile=UE_F.vwf
+calibIndex=2
+bTurnWithView=1
+bDoNotBlend=0
+eyePointProvider=
+eyePointProviderParam=sinewave
+eye=[0.00000, 0.00000, 0.00000]
+near=0.15000
+far=1000.00000
+bBicubic=0
+bUseGL110=0
+bPartialInput=0
+splice=0
+trans=[1000.00000, 0.00000, 0.00000, 0.00000; 0.00000, 1000.00000, 0.00000, 0.00000; 0.00000, 0.00000, -1000.00000, 0.00000; 0.00000, 0.00000, 0.00000, 1.00000]
+autoViewC=1.00000;
+bAutoView=1;
+dir=[0.00000, 0.00000, 0.00000]
+fov=[35.00000, 30.00000, 35.00000, 30.00000]
+screen=2.00000
+optimalRes=[0, 0]
+optimalRect=[0, 0, 0, 0]
+port=0
+address=0.0.0.0
+mouseMode=0
+
+14:26:16 Open "C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\UE_F.vwf"...
+
+14:26:16 File found and openend.
+
+14:26:16 File contains 15 chunks.
+
+14:26:16 Load warp map 0...
+
+14:26:16 Warp map successfully loaded, new dataset (1) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 1...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 1...
+
+14:26:16 Black image set.
+
+14:26:16 Load warp map 1...
+
+14:26:16 Warp map successfully loaded, new dataset (2) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 2...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 2...
+
+14:26:16 Black image set.
+
+14:26:16 Load warp map 2...
+
+14:26:16 Warp map successfully loaded, new dataset (3) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 3...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 3...
+
+14:26:16 Black image set.
+
+14:26:16 Load warp map 3...
+
+14:26:16 Warp map successfully loaded, new dataset (4) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 4...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 4...
+
+14:26:16 Black image set.
+
+14:26:16 Load warp map 4...
+
+14:26:16 Warp map successfully loaded, new dataset (5) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 5...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 5...
+
+14:26:16 Black image set.
+
+14:26:16 LoadVWF: Successfully added 5 datasets to the mappings set.
+
+14:26:16 3D data found in mapping. Using DYNAMIC EYE settings.
+
+14:26:16 left-handedness detected.
+
+14:26:16 INFO: AutoView mapping display corners (-160.3464,4237.9756,-5886.8667)-(-4377.4243,-5694.9023,-1020.7656).
+
+14:26:16 INFO: AutoView for channel [left] yields:
+dir=[-49.112431, 0.103086, 90.158073]
+fov=[50.956478, 43.903816, 56.186234, 48.967060]
+screenDist=4.191730
+optimalRes=[5609, 1640]
+optimalRect=[0, 0, 5609, 1640]
+handedness=left
+borderFitError=[-1.436768%, 4.278847%, 9.797811%, 11.091965%]
+
+14:26:16 INFO: Output buffer found. Viewport is 535x664.
+
+14:26:16 SUCCESS: DX11-Warper initialized.
+
+14:26:16 Successfully created warper #2
+
+14:26:16 -VIOSO WARP BLEND API-
+
+14:26:16 2023/02/02 VIOSOWarpBlend API 1.4.0.7332.
+
+14:26:16 C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\VIOSOWarpBlend64.dll.
+
+14:26:16 DX11-Warper "back" created. Logging level is 2
+Evaluated parameters from
+C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\VIOSOWarpBlend.ini:
+calibFile=UE_F.vwf
+calibIndex=1
+bTurnWithView=1
+bDoNotBlend=0
+eyePointProvider=
+eyePointProviderParam=sinewave
+eye=[0.00000, 0.00000, 0.00000]
+near=0.15000
+far=1000.00000
+bBicubic=0
+bUseGL110=0
+bPartialInput=0
+splice=0
+trans=[1000.00000, 0.00000, 0.00000, 0.00000; 0.00000, 1000.00000, 0.00000, 0.00000; 0.00000, 0.00000, -1000.00000, 0.00000; 0.00000, 0.00000, 0.00000, 1.00000]
+autoViewC=1.00000;
+bAutoView=1;
+dir=[0.00000, 0.00000, 0.00000]
+fov=[35.00000, 30.00000, 35.00000, 30.00000]
+screen=2.00000
+optimalRes=[0, 0]
+optimalRect=[0, 0, 0, 0]
+port=0
+address=0.0.0.0
+mouseMode=0
+
+14:26:16 Open "C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\UE_F.vwf"...
+
+14:26:16 File found and openend.
+
+14:26:16 File contains 15 chunks.
+
+14:26:16 Load warp map 0...
+
+14:26:16 Warp map successfully loaded, new dataset (1) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 1...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 1...
+
+14:26:16 Black image set.
+
+14:26:16 Load warp map 1...
+
+14:26:16 Warp map successfully loaded, new dataset (2) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 2...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 2...
+
+14:26:16 Black image set.
+
+14:26:16 Load warp map 2...
+
+14:26:16 Warp map successfully loaded, new dataset (3) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 3...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 3...
+
+14:26:16 Black image set.
+
+14:26:16 Load warp map 3...
+
+14:26:16 Warp map successfully loaded, new dataset (4) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 4...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 4...
+
+14:26:16 Black image set.
+
+14:26:16 Load warp map 4...
+
+14:26:16 Warp map successfully loaded, new dataset (5) 2560x1600 created.
+
+14:26:16 Load bitmap for dataset 5...
+
+14:26:16 Blend image set.
+
+14:26:16 Load bitmap for dataset 5...
+
+14:26:16 Black image set.
+
+14:26:16 LoadVWF: Successfully added 5 datasets to the mappings set.
+
+14:26:16 3D data found in mapping. Using DYNAMIC EYE settings.
+
+14:26:16 left-handedness detected.
+
+14:26:17 INFO: AutoView mapping display corners (5309.0034,-551.5908,-4913.7295)-(-5560.9731,4528.0942,-1091.8047).
+
+14:26:17 INFO: AutoView for channel [back] yields:
+dir=[-48.831951, -7.020959, 179.871857]
+fov=[57.326771, 44.947006, 61.958870, 52.387680]
+screenDist=3.808110
+optimalRes=[6360, 1556]
+optimalRect=[0, 0, 6360, 1556]
+handedness=left
+borderFitError=[5.281405%, -2.603698%, 18.650742%, 9.255337%]
+
+14:26:17 INFO: Output buffer found. Viewport is 535x664.
+
+14:26:17 SUCCESS: DX11-Warper initialized.
+
+14:26:17 Successfully created warper #3
+
+14:26:17 -VIOSO WARP BLEND API-
+
+14:26:17 2023/02/02 VIOSOWarpBlend API 1.4.0.7332.
+
+14:26:17 C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\VIOSOWarpBlend64.dll.
+
+14:26:17 DX11-Warper "top" created. Logging level is 2
+Evaluated parameters from
+C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\VIOSOWarpBlend.ini:
+calibFile=UE_F.vwf
+calibIndex=3
+bTurnWithView=1
+bDoNotBlend=0
+eyePointProvider=
+eyePointProviderParam=sinewave
+eye=[0.00000, 0.00000, 0.00000]
+near=0.15000
+far=1000.00000
+bBicubic=0
+bUseGL110=0
+bPartialInput=0
+splice=0
+trans=[1000.00000, 0.00000, 0.00000, 0.00000; 0.00000, 1000.00000, 0.00000, 0.00000; 0.00000, 0.00000, -1000.00000, 0.00000; 0.00000, 0.00000, 0.00000, 1.00000]
+autoViewC=1.00000;
+bAutoView=1;
+dir=[0.00000, 0.00000, 0.00000]
+fov=[35.00000, 30.00000, 35.00000, 30.00000]
+screen=2.00000
+optimalRes=[0, 0]
+optimalRect=[0, 0, 0, 0]
+port=0
+address=0.0.0.0
+mouseMode=0
+
+14:26:17 Open "C:\Users\vrime\Downloads\FHWDome_withVRPN\FHW_Dome with VRPN\FHW_Dome with VRPN\Assets\Plugins\Vioso\UE_F.vwf"...
+
+14:26:17 File found and openend.
+
+14:26:17 File contains 15 chunks.
+
+14:26:17 Load warp map 0...
+
+14:26:17 Warp map successfully loaded, new dataset (1) 2560x1600 created.
+
+14:26:17 Load bitmap for dataset 1...
+
+14:26:17 Blend image set.
+
+14:26:17 Load bitmap for dataset 1...
+
+14:26:17 Black image set.
+
+14:26:17 Load warp map 1...
+
+14:26:17 Warp map successfully loaded, new dataset (2) 2560x1600 created.
+
+14:26:17 Load bitmap for dataset 2...
+
+14:26:17 Blend image set.
+
+14:26:17 Load bitmap for dataset 2...
+
+14:26:17 Black image set.
+
+14:26:17 Load warp map 2...
+
+14:26:17 Warp map successfully loaded, new dataset (3) 2560x1600 created.
+
+14:26:17 Load bitmap for dataset 3...
+
+14:26:17 Blend image set.
+
+14:26:17 Load bitmap for dataset 3...
+
+14:26:17 Black image set.
+
+14:26:17 Load warp map 3...
+
+14:26:17 Warp map successfully loaded, new dataset (4) 2560x1600 created.
+
+14:26:17 Load bitmap for dataset 4...
+
+14:26:17 Blend image set.
+
+14:26:17 Load bitmap for dataset 4...
+
+14:26:17 Black image set.
+
+14:26:17 Load warp map 4...
+
+14:26:17 Warp map successfully loaded, new dataset (5) 2560x1600 created.
+
+14:26:17 Load bitmap for dataset 5...
+
+14:26:17 Blend image set.
+
+14:26:17 Load bitmap for dataset 5...
+
+14:26:17 Black image set.
+
+14:26:17 LoadVWF: Successfully added 5 datasets to the mappings set.
+
+14:26:17 3D data found in mapping. Using DYNAMIC EYE settings.
+
+14:26:17 left-handedness detected.
+
+14:26:17 INFO: AutoView mapping display corners (-1218.7870,4763.3643,-5334.4053)-(3960.8684,-3341.2871,-5077.7935).
+
+14:26:17 INFO: AutoView for channel [top] yields:
+dir=[-0.517343, 1.664030, 11.467822]
+fov=[41.509521, 40.904854, 41.006821, 40.983936]
+screenDist=5.175654
+optimalRes=[7388, 1601]
+optimalRect=[0, 0, 7388, 1601]
+handedness=left
+borderFitError=[2.511999%, 7.875197%, 2.366741%, 0.557444%]
+
+14:26:17 INFO: Output buffer found. Viewport is 535x664.
+
+14:26:17 SUCCESS: DX11-Warper initialized.
+
+14:26:17 Successfully created warper #4
+
+14:26:17 Input texture resource attached.
+14:26:17 Input texture resource attached.
+14:26:17 Input texture resource attached.
+14:26:17 Input texture resource attached.
+14:26:17 Input texture resource attached.
+14:27:07 INFO: DX11-Warper destroyed.
+
+14:27:07 Warper destroyed.
+14:27:07 INFO: DX11-Warper destroyed.
+
+14:27:07 Warper destroyed.
+14:27:07 INFO: DX11-Warper destroyed.
+
+14:27:07 Warper destroyed.
+14:27:07 INFO: DX11-Warper destroyed.
+
+14:27:07 Warper destroyed.
+14:27:07 INFO: DX11-Warper destroyed.
+
+14:27:07 Warper destroyed.
+14:27:07 Unloading VIOSOWarpBlend
+
