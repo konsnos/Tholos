@@ -22,6 +22,8 @@ using System.Collections;
 
 public class DomeVRPNNavigator : MonoBehaviour
 {
+    [SerializeField] private bool isActive;
+
     [Header ("Multiplier on LB")]
     public int speedMultiplierLB = 1;
     [Header ("Multiplier on RB")]
@@ -41,6 +43,8 @@ public class DomeVRPNNavigator : MonoBehaviour
 
     public void UpdateInputButtons(int joyNr, int buttonNr, bool val)
     {
+        if (!isActive) return;
+
         //Determine if a speed multiper key is pressed
         if (buttonNr == 5 )
             speedMultiplier = val ? speedMultiplierLB : 1;
@@ -55,6 +59,8 @@ public class DomeVRPNNavigator : MonoBehaviour
     }
     public void UpdateInputAxis(int joyNr, int axisNr, double value)
     {
+        if (!isActive) return;
+
         switch (axisNr)
         {
             case 0: leftStick.x = (float)value;

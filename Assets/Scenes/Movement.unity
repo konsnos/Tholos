@@ -1620,34 +1620,10 @@ MonoBehaviour:
   debugLog: 0
   OnButtonChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1445138744}
-        m_TargetAssemblyTypeName: DomeVRPNNavigator, Assembly-CSharp
-        m_MethodName: UpdateInputButtons
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnAxisChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1445138744}
-        m_TargetAssemblyTypeName: DomeVRPNNavigator, Assembly-CSharp
-        m_MethodName: UpdateInputAxis
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &812979105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2551,6 +2527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d42813e327f0fa49b30329455fce71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   speedMultiplierLB: 2
   speedMultiplierRB: 4
   moveSpeed: 3
@@ -3431,7 +3408,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Console
+  m_Text: Console will populate if enabled
 --- !u!222 &1895814715
 CanvasRenderer:
   m_ObjectHideFlags: 0
