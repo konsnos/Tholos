@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
@@ -7,6 +9,8 @@ public class Character : MonoBehaviour
     private Rigidbody _rigidbody;
 
     [SerializeField] private float _forceModifier;
+
+    public CharacterTouchedWaterEvent OnCharacterTouchedWater;
 
     private void Awake()
     {
@@ -17,7 +21,7 @@ public class Character : MonoBehaviour
     {
         Vector3 force = GetForcePerDirectcion(channel);
 
-        Debug.Log($"Adding force {force} to character {CharacterId}", gameObject);
+        //Debug.Log($"Adding force {force} to character {CharacterId}", gameObject);
 
         _rigidbody.AddForce(force, ForceMode.Impulse);
     }
@@ -30,28 +34,24 @@ public class Character : MonoBehaviour
 
         if (channel == (int)ForceDirectionPerChannel.ForwardLeft)
         {
-            Debug.Log("Forward Left");
             force.x = -1 * _forceModifier;
             force.z = 1 * _forceModifier;
             return force;
         }
         if (channel == (int)ForceDirectionPerChannel.ForwardRight)
         {
-            Debug.Log("Forward Right");
             force.x = 1 * _forceModifier;
             force.z = 1 * _forceModifier;
             return force;
         }
         if (channel == (int) ForceDirectionPerChannel.BackwardLeft)
         {
-            Debug.Log("Backward Left");
             force.x = -1 * _forceModifier;
             force.z = -1 * _forceModifier;
             return force;
         }
         if(channel == (int) ForceDirectionPerChannel.BackwardRight)
         {
-            Debug.Log("Backward Right");
             force.x = 1 * _forceModifier;
             force.z = -1 * _forceModifier;
             return force;
@@ -59,7 +59,19 @@ public class Character : MonoBehaviour
 
         return Vector3.zero;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if(other.CompareTag("Water"))
+        //{
+        //    OnCharacterTouchedWater?.Invoke(CharacterId);
+        //}
+    }
 }
+
+[Serializable]
+public class CharacterTouchedWaterEvent : UnityEvent<int>
+{ }
 
 public enum ForceDirectionPerChannel
 {

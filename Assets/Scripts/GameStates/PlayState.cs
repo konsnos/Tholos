@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class PlayState : BaseGameState
 {
@@ -6,6 +7,11 @@ public class PlayState : BaseGameState
 
     public delegate void OnPlayerButtonDelegate(int playerId, int button);
     public event OnPlayerButtonDelegate OnPlayerButton;
+
+    private DateTime _startTime;
+    private DateTime _endTime;
+    [SerializeField] private int _sessionDuration;
+    public int SecondsRemaining { private set; get; }
 
     private void Awake()
     {
@@ -15,6 +21,10 @@ public class PlayState : BaseGameState
     public override void Begin()
     {
         _charactersManager.SubscribeToCharacterMovement(this);
+
+        _startTime = DateTime.UtcNow;
+        _endTime = _startTime + new TimeSpan(0, 0, _sessionDuration);
+        SecondsRemaining = _sessionDuration;
     }
 
     public override void Stop()
@@ -24,7 +34,15 @@ public class PlayState : BaseGameState
 
     public override void UpdateManual()
     {
-        // do nothing
+        if(DateTime.UtcNow < _endTime)
+        {
+            SecondsRemaining = Mathf.CeilToInt((float)(_endTime - DateTime.UtcNow).TotalSeconds);
+        }
+        else
+        {
+            SecondsRemaining = 0;
+            CloseState();
+        }
     }
 
     public override void OnButtonClick(int joystick, int button, bool state)

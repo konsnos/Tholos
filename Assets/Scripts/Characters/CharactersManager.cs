@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +9,7 @@ public class CharactersManager : MonoBehaviour
     [SerializeField] private Transform _charactersContainer;
     [SerializeField] private Character _characterPrefab;
     
-    private Dictionary<int, Character> _characters = new Dictionary<int, Character>();
+    public Dictionary<int, Character> Characters { private set; get; } = new Dictionary<int, Character>();
     public const int MaxCharactersAmount = 130;
     private JoinState _joinState;
 
@@ -34,9 +35,10 @@ public class CharactersManager : MonoBehaviour
 
     public void ResetPlayers()
     {
-        //todo: destroy everything
-        _characters.Clear();
-        CharactersAmount = 0;
+        foreach (var item in Characters.ToArray<KeyValuePair<int, Character>>())
+        {
+            RemoveCharacter(item.Key);
+        }
     }
     
     public void InstantiatePlayer(int number)
@@ -45,45 +47,36 @@ public class CharactersManager : MonoBehaviour
         var newCharacter = Instantiate(_characterPrefab, _charactersContainer);
         newCharacter.transform.localPosition += new Vector3(UnityEngine.Random.Range(-10, 10), 0f, UnityEngine.Random.Range(-10, 10));
         newCharacter.CharacterId = number;
-        _characters.Add(number, newCharacter);
+        newCharacter.OnCharacterTouchedWater.AddListener(OnCharacterTouchedWater);
+        Characters.Add(number, newCharacter);
         CharactersAmount++;
 
         OnPlayerAdded?.Invoke(CharactersAmount);
     }
 
+    private void OnCharacterTouchedWater(int characterId)
+    {
+        RemoveCharacter(characterId);
+    }
+
+    public void RemoveCharacter(int characterId)
+    {
+        var character = Characters[characterId];
+        Destroy(character.gameObject);
+
+        Characters.Remove(characterId);
+        CharactersAmount--;
+        Debug.Log($"Removed character {characterId}");
+    }
+
     public void SubscribeToCharacterMovement(PlayState playState)
     {
-        _characterMovement = new CharactersMovement(_characters, playState);
+        _characterMovement = new CharactersMovement(Characters, playState);
     }
 
     public void UnsubscribeFromCharacterMovement()
     {
         _characterMovement = null;
-    }
-}
-
-public class CharactersMovement
-{
-    private readonly Dictionary<int, Character> _characters;
-    private PlayState _playState;
-
-    public CharactersMovement(Dictionary<int, Character> characters, PlayState playState)
-    {
-        _characters = characters;
-        _playState = playState;
-        _playState.OnPlayerButton += OnPlayerButton;
-    }
-
-    ~CharactersMovement()
-    {
-        _playState.OnPlayerButton -= OnPlayerButton;
-    }
-
-    private void OnPlayerButton(int playerId, int button)
-    {
-        if (!_characters.ContainsKey(playerId)) return;
-
-        _characters[playerId].AddForce(button);
     }
 }
 

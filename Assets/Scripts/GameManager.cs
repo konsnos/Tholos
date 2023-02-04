@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     private void UpdateGameState(GameStateType newGameStateType)
     {
-        Debug.Log($"Stopping game state: {GameState}", gameObject);
+        Debug.Log($"Stopping game state: {gameStateType}", gameObject);
         var oldGameState = gameStateType;
         GameState?.OnStateClose.RemoveListener(OnStateClosed);
         GameState?.Stop();
@@ -56,13 +56,14 @@ public class GameManager : MonoBehaviour
         {
             GameStateType.Join => FindObjectOfType<JoinState>(),
             GameStateType.Play => FindObjectOfType<PlayState>(),
+            GameStateType.End => FindObjectOfType<EndState>(),
             _ => null
         };
 
         GameState?.OnStateClose.AddListener(OnStateClosed);
         GameState?.Begin();
 
-        OnStateChanged?.Invoke(oldGameState, gameStateType);
+        OnStateChanged?.Invoke(gameStateType);
 
         Debug.Log($"New game state: {GameState}", gameObject);
     }
@@ -74,10 +75,13 @@ public class GameManager : MonoBehaviour
 
     private void AssignNextState()
     {
+        Debug.Log($"Assigning next state from {gameStateType}");
         gameStateType = gameStateType switch
         {
-            GameStateType.Join => GameStateType.Play
+            GameStateType.Join => GameStateType.Play,
+            GameStateType.Play => GameStateType.End,
         };
+        UpdateGameState(gameStateType);
     }
 
     private void OnAxisChanged(int number, int channel, double value)
@@ -99,9 +103,10 @@ public enum GameStateType
 {
     None,
     Join,
-    Play
+    Play,
+    End,
 }
 
 [Serializable]
-public class StateChangedEvent : UnityEvent<GameStateType, GameStateType>
+public class StateChangedEvent : UnityEvent<GameStateType>
 { }
