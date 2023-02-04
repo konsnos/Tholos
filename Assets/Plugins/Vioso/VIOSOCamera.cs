@@ -100,7 +100,7 @@ public class VIOSOCamera : MonoBehaviour
         }
         else
         {
-            Debug.Log(string.Format("Initialization attempt of warper failed with eror %i.", err ) );
+            Debug.Log($"Initialization attempt of warper failed with error {err}.");
         }
 
         if (ERROR.NONE != err)

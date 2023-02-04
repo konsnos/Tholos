@@ -17,7 +17,7 @@ public class JoinState : BaseGameState
     public SecondsRemainingEvent _onSecondsRemaingEvent;
     private int _lastSeconds;
 
-    private void Start()
+    private void Awake()
     {
         _charactersManager = FindObjectOfType<CharactersManager>();
     }
