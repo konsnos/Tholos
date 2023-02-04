@@ -35,6 +35,11 @@ public class PlayState : BaseGameState
 
     public override void UpdateManual()
     {
+        if(_charactersManager.Characters.Count <= 0)
+        {
+            CloseState();
+        }
+
         if(DateTime.UtcNow < _endTime)
         {
             SecondsRemaining = Mathf.CeilToInt((float)(_endTime - DateTime.UtcNow).TotalSeconds);
