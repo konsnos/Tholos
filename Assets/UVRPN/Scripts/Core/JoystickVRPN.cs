@@ -85,8 +85,6 @@ public class JoystickVRPN : MonoBehaviour
 
     public void Update()
     {
-        OnButtonChange.Invoke(1, 1, true);
-        
         //Update each device of joystickArray each frame
         for(int joyIndex = 0; joyIndex < joystickArray.Length; joyIndex++)
         {
