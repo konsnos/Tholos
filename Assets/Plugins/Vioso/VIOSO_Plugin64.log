@@ -9157,3 +9157,6 @@ borderFitError=[-1.436768%, 4.278847%, 9.797811%, 11.091965%]
 14:53:07 Warper destroyed.
 14:53:07 Unloading VIOSOWarpBlend
 
+VIOSO Unity Plugin kUnityGfxDeviceEventShutdown
+VIOSO Unity Plugin kUnityGfxDeviceEventShutdown
+VIOSO Unity Plugin to unload
