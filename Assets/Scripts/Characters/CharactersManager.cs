@@ -18,7 +18,8 @@ public class CharactersManager : MonoBehaviour
 
     public int CharactersAmount { private set; get; }
 
-    public PlayerAddedEvent OnPlayerAdded;
+    public PlayerAddedEvent OnCharacterAdded;
+    public PlayerRemovedEvent OnCharacterRemoved;
 
     public void SubscribeToCharacterCreation(JoinState joinState)
     {
@@ -52,7 +53,7 @@ public class CharactersManager : MonoBehaviour
         Characters.Add(number, newCharacter);
         CharactersAmount++;
 
-        OnPlayerAdded?.Invoke(CharactersAmount);
+        OnCharacterAdded?.Invoke(CharactersAmount);
     }
 
     public void AddListenerForWaterTouch()
@@ -77,6 +78,7 @@ public class CharactersManager : MonoBehaviour
 
         Characters.Remove(characterId);
         CharactersAmount--;
+        OnCharacterRemoved?.Invoke();
         Debug.Log($"Removed character {characterId}");
     }
 
@@ -93,6 +95,12 @@ public class CharactersManager : MonoBehaviour
 
 [Serializable]
 public class PlayerAddedEvent : UnityEvent<int>
+{
+
+}
+
+[Serializable]
+public class PlayerRemovedEvent : UnityEvent
 {
 
 }

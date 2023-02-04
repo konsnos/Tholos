@@ -18,13 +18,13 @@ public class PlayButton : MonoBehaviour
 
     private void OnEnable()
     {
-        charactersManager.OnPlayerAdded.AddListener(OnPlayerAdded);
+        charactersManager.OnCharacterAdded.AddListener(OnPlayerAdded);
         playStateButton.onClick.AddListener(OnProceedToPlay);
     }
 
     private void OnDisable()
     {
-        charactersManager.OnPlayerAdded.RemoveListener(OnPlayerAdded);
+        charactersManager.OnCharacterAdded.RemoveListener(OnPlayerAdded);
         playStateButton.onClick.RemoveListener(OnProceedToPlay);
     }
 

@@ -15,12 +15,12 @@ public class PlayersAmount : MonoBehaviour
 
     private void OnEnable()
     {
-        charactersManager.OnPlayerAdded.AddListener(OnPlayerAdded);
+        charactersManager.OnCharacterAdded.AddListener(OnPlayerAdded);
     }
 
     private void OnDisable()
     {
-        charactersManager.OnPlayerAdded.RemoveListener(OnPlayerAdded);
+        charactersManager.OnCharacterAdded.RemoveListener(OnPlayerAdded);
     }
 
     private void OnPlayerAdded(int playersAmount)
