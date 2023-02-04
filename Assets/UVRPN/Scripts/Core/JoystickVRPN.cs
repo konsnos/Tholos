@@ -85,8 +85,17 @@ public class JoystickVRPN : MonoBehaviour
 
     public void Update()
     {
+        UpdateEditor();
+
+        UpdateDevice();
+    }
+
+    private void UpdateDevice()
+    {
+        if (Application.isEditor) return;
+
         //Update each device of joystickArray each frame
-        for(int joyIndex = 0; joyIndex < joystickArray.Length; joyIndex++)
+        for (int joyIndex = 0; joyIndex < joystickArray.Length; joyIndex++)
         {
             //get a joystick device
             JoystickInfo js = joystickArray[joyIndex];
@@ -121,9 +130,25 @@ public class JoystickVRPN : MonoBehaviour
                     if ((diff >= float.Epsilon || diff <= -float.Epsilon) && OnAxisChange != null)
                         OnAxisChange.Invoke(joyIndex, i, newValue);
 
-                    js.axis[i] = newValue; 
+                    js.axis[i] = newValue;
                 }
             }
+        }
+    }
+
+    private void UpdateEditor()
+    {
+        if (!Application.isEditor) return;
+        
+        //todo: listen for keys
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            OnButtonChange.Invoke(1, 0, true);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            OnButtonChange.Invoke(1, 0, false);
         }
     }
 }

@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void UpdateGameState()
     {
+        Debug.Log($"Stopping game state: {_gameState}", gameObject);
         _gameState?.OnStateClose.RemoveListener(OnStateClosed);
         _gameState?.Stop();
 
@@ -42,6 +43,8 @@ public class GameManager : MonoBehaviour
 
         _gameState?.OnStateClose.AddListener(OnStateClosed);
         _gameState?.Begin();
+        
+        Debug.Log($"New game state: {_gameState}", gameObject);
     }
 
     private void OnStateClosed()

@@ -8,8 +8,8 @@ public class JoinState : BaseGameState
     private readonly HashSet<int> _playersExisting = new HashSet<int>();
     private CharactersManager _charactersManager;
 
-    public delegate void OnPlayerAdded(int playerId);
-    public event OnPlayerAdded _onPlayerAdded;
+    public delegate void OnPlayerAddedDelegate(int playerId);
+    public event OnPlayerAddedDelegate OnPlayerAdded;
 
     private DateTime _startTime;
     [SerializeField] private int _secondsForPlayerCreation;
@@ -32,6 +32,8 @@ public class JoinState : BaseGameState
             {
                 _lastSeconds = remainingSeconds;
                 _onSecondsRemaingEvent?.Invoke(remainingSeconds);
+                
+                Debug.Log($"Seconds remaining: {remainingSeconds}", gameObject);
             }
         }
         else
@@ -65,7 +67,7 @@ public class JoinState : BaseGameState
     {
         if (_playersExisting.Contains(number)) return;
 
-        _onPlayerAdded?.Invoke(number);
+        OnPlayerAdded?.Invoke(number);
 
         _playersExisting.Add(number);
     }

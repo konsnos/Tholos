@@ -3,8 +3,9 @@ using UnityEngine.Events;
 
 public abstract class BaseGameState : MonoBehaviour, IGameState
 {
-    public UnityEvent OnStateClose { get; }
-    
+    protected UnityEvent _onStateClosed = new UnityEvent();
+    public UnityEvent OnStateClose => _onStateClosed;
+
     public abstract void Begin();
 
     public abstract void Stop();
