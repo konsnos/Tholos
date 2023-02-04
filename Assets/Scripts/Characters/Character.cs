@@ -17,6 +17,8 @@ public class Character : MonoBehaviour
     {
         Vector3 force = GetForcePerDirectcion(channel);
 
+        Debug.Log($"Adding force {force} to character {CharacterId}", gameObject);
+
         _rigidbody.AddForce(force);
     }
 

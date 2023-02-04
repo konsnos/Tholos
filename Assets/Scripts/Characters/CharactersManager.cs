@@ -43,6 +43,7 @@ public class CharactersManager : MonoBehaviour
     {
         Debug.Log($"Creating character {number}", gameObject);
         var newCharacter = Instantiate(_characterPrefab, _charactersContainer);
+        newCharacter.transform.localPosition += new Vector3(UnityEngine.Random.Range(-10, 10), 0f, UnityEngine.Random.Range(-10, 10));
         newCharacter.CharacterId = number;
         _characters.Add(number, newCharacter);
         CharactersAmount++;
