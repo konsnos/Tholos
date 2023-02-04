@@ -46,7 +46,7 @@ public class JoinState : BaseGameState
     public override void Begin()
     {
         _playersExisting.Clear();
-        _charactersManager.SubscribeToPlayerCreation(this);
+        _charactersManager.SubscribeToCharacterCreation(this);
 
         StartCounter();
     }
@@ -61,7 +61,7 @@ public class JoinState : BaseGameState
 
     public override void Stop()
     {
-        _charactersManager.UnsubscribeFromPlayerCreation();
+        _charactersManager.UnsubscribeFromCharacterCreation();
     }
 
     public override void OnButtonClick(int number, int button, bool state)

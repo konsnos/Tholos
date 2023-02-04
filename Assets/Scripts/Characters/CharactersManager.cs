@@ -12,18 +12,20 @@ public class CharactersManager : MonoBehaviour
     public const int MaxCharactersAmount = 130;
     private JoinState _joinState;
 
+    private CharactersMovement _characterMovement;
+
     public int CharactersAmount { private set; get; }
 
     public PlayerAddedEvent OnPlayerAdded;
 
-    public void SubscribeToPlayerCreation(JoinState joinState)
+    public void SubscribeToCharacterCreation(JoinState joinState)
     {
         _joinState = joinState;
 
         _joinState.OnPlayerAdded += InstantiatePlayer;
     }
 
-    public void UnsubscribeFromPlayerCreation()
+    public void UnsubscribeFromCharacterCreation()
     {
         _joinState.OnPlayerAdded -= InstantiatePlayer;
 
@@ -46,6 +48,41 @@ public class CharactersManager : MonoBehaviour
         CharactersAmount++;
 
         OnPlayerAdded?.Invoke(CharactersAmount);
+    }
+
+    public void SubscribeToCharacterMovement(PlayState playState)
+    {
+        _characterMovement = new CharactersMovement(_characters, playState);
+    }
+
+    public void UnsubscribeFromCharacterMovement()
+    {
+        _characterMovement = null;
+    }
+}
+
+public class CharactersMovement
+{
+    private readonly Dictionary<int, Character> _characters;
+    private PlayState _playState;
+
+    public CharactersMovement(Dictionary<int, Character> characters, PlayState playState)
+    {
+        _characters = characters;
+        _playState = playState;
+        _playState.OnPlayerButton += OnPlayerButton;
+    }
+
+    ~CharactersMovement()
+    {
+        _playState.OnPlayerButton -= OnPlayerButton;
+    }
+
+    private void OnPlayerButton(int playerId, int button)
+    {
+        if (!_characters.ContainsKey(playerId)) return;
+
+        _characters[playerId].AddForce(button);
     }
 }
 

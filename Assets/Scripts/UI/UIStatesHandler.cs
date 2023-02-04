@@ -3,6 +3,7 @@ using UnityEngine;
 public class UIStatesHandler : MonoBehaviour
 {
     [SerializeField] private JoinUI joinUI;
+    [SerializeField] private PlayUI playUI;
 
     private void Start()
     {
@@ -14,7 +15,10 @@ public class UIStatesHandler : MonoBehaviour
         switch (oldGameState)
         {
             case GameStateType.Join:
-                joinUI.gameObject.SetActive(false); 
+                joinUI.gameObject.SetActive(false);
+                break;
+            case GameStateType.Play:
+                playUI.gameObject.SetActive(false);
                 break;
         }
 
@@ -22,6 +26,9 @@ public class UIStatesHandler : MonoBehaviour
         {
             case GameStateType.Join:
                 joinUI.gameObject.SetActive(true);
+                break;
+            case GameStateType.Play:
+                playUI.gameObject.SetActive(true);
                 break;
         }
     }
