@@ -21,6 +21,7 @@ public class PlayState : BaseGameState
     public override void Begin()
     {
         _charactersManager.SubscribeToCharacterMovement(this);
+        _charactersManager.AddListenerForWaterTouch();
 
         _startTime = DateTime.UtcNow;
         _endTime = _startTime + new TimeSpan(0, 0, _sessionDuration);

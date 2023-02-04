@@ -38,7 +38,7 @@ public class Character : MonoBehaviour
     {
         Vector3 force = new Vector3();
 
-        Debug.Log($"Received channel {channel}");
+        //Debug.Log($"Received channel {channel}");
 
         if (channel == (int)ForceDirectionPerChannel.ForwardLeft)
         {
@@ -65,15 +65,15 @@ public class Character : MonoBehaviour
             return force;
         }
 
-        return Vector3.zero;
+        return force;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"Character {CharacterId} collided with {other.gameObject.name}, with tag {other.tag}");
         if (other.CompareTag("Water"))
         {
-            Debug.Log($"Character {CharacterId} Collided with water", gameObject);
-            //OnCharacterTouchedWater?.Invoke(CharacterId);
+            OnCharacterTouchedWater?.Invoke(CharacterId);
         }
     }
 }

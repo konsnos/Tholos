@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.TextCore.Text;
 
 public class CharactersManager : MonoBehaviour
 {
@@ -44,24 +45,34 @@ public class CharactersManager : MonoBehaviour
     public void InstantiatePlayer(int number)
     {
         Debug.Log($"Creating character {number}", gameObject);
+
         var newCharacter = Instantiate(_characterPrefab, _charactersContainer);
         newCharacter.transform.localPosition += new Vector3(UnityEngine.Random.Range(-10, 10), 0f, UnityEngine.Random.Range(-10, 10));
         newCharacter.AssignId(number);
-        newCharacter.OnCharacterTouchedWater.AddListener(OnCharacterTouchedWater);
         Characters.Add(number, newCharacter);
         CharactersAmount++;
 
         OnPlayerAdded?.Invoke(CharactersAmount);
     }
 
+    public void AddListenerForWaterTouch()
+    {
+        foreach (var keyValuePair in Characters)
+        {
+            keyValuePair.Value.OnCharacterTouchedWater.AddListener(OnCharacterTouchedWater);
+        }
+    }
+
     private void OnCharacterTouchedWater(int characterId)
     {
+        Debug.Log($"Character {characterId} Collided with water", gameObject);
         RemoveCharacter(characterId);
     }
 
     public void RemoveCharacter(int characterId)
     {
         var character = Characters[characterId];
+        character.OnCharacterTouchedWater.RemoveListener(OnCharacterTouchedWater);
         Destroy(character.gameObject);
 
         Characters.Remove(characterId);

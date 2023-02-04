@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class UIStatesHandler : MonoBehaviour
 {
-    [SerializeField] private JoinUI joinUI;
-    [SerializeField] private PlayUI playUI;
-    [SerializeField] private EndUI endUI;
+    [SerializeField] private GameObject[] joinUIs;
+    [SerializeField] private GameObject[] playUIs;
+    [SerializeField] private GameObject[] endUIs;
 
     private void Awake()
     {
@@ -15,21 +15,29 @@ public class UIStatesHandler : MonoBehaviour
     {
         Debug.Log($"Changing ui state to {newGameState}");
 
-        joinUI.gameObject.SetActive(false);
-        playUI.gameObject.SetActive(false);
-        endUI.gameObject.SetActive(false);
+        SetEnabledList(joinUIs, false);
+        SetEnabledList(playUIs, false);
+        SetEnabledList(endUIs, false);
 
         switch (newGameState)
         {
             case GameStateType.Join:
-                joinUI.gameObject.SetActive(true);
+                SetEnabledList(joinUIs, true);
                 break;
             case GameStateType.Play:
-                playUI.gameObject.SetActive(true);
+                SetEnabledList(playUIs, true);
                 break;
             case GameStateType.End:
-                endUI.gameObject.SetActive(true);
+                SetEnabledList(endUIs, true);
                 break;
+        }
+    }
+
+    private void SetEnabledList(GameObject[] list, bool setEnabled)
+    {
+        foreach (var item in list)
+        {
+            item.SetActive(setEnabled);
         }
     }
 }
