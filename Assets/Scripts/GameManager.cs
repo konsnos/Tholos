@@ -1,21 +1,32 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    private GameStateType _gameStateType = GameStateType.None;
-    private IGameState _gameState;
-    
+    public static GameManager Singleton { get; private set; }
+
+    private GameStateType gameStateType = GameStateType.None;
+
     [SerializeField] private JoystickVRPN _seatsVRPN;
     [SerializeField] private JoystickVRPN _navigatorVRPN;
 
+    public IGameState GameState { get; private set; }
+    public StateChangedEvent OnStateChanged;
+
+    private void Awake()
+    {
+        Singleton = this;
+    }
+
     private void Start()
     {
-        _gameStateType = GameStateType.Join;
-        
+        gameStateType = GameStateType.Join;
+
         _seatsVRPN.OnButtonChange.AddListener(OnButtonClick);
         _navigatorVRPN.OnAxisChange.AddListener(OnAxisChanged);
-        
-        UpdateGameState();
+
+        UpdateGameState(GameStateType.Join);
     }
 
     private void Update()
@@ -25,26 +36,35 @@ public class GameManager : MonoBehaviour
 
     private void UpdateGame()
     {
-        _gameState?.UpdateManual();
+        GameState?.UpdateManual();
     }
 
-    private void UpdateGameState()
+    public void GoToPlay()
     {
-        Debug.Log($"Stopping game state: {_gameState}", gameObject);
-        _gameState?.OnStateClose.RemoveListener(OnStateClosed);
-        _gameState?.Stop();
+        UpdateGameState(GameStateType.Play);
+    }
 
-        _gameState = _gameStateType switch
+    private void UpdateGameState(GameStateType newGameStateType)
+    {
+        Debug.Log($"Stopping game state: {GameState}", gameObject);
+        var oldGameState = gameStateType;
+        GameState?.OnStateClose.RemoveListener(OnStateClosed);
+        GameState?.Stop();
+        gameStateType = newGameStateType;
+
+        GameState = gameStateType switch
         {
             GameStateType.Join => FindObjectOfType<JoinState>(),
             GameStateType.Play => FindObjectOfType<PlayState>(),
             _ => null
         };
 
-        _gameState?.OnStateClose.AddListener(OnStateClosed);
-        _gameState?.Begin();
-        
-        Debug.Log($"New game state: {_gameState}", gameObject);
+        GameState?.OnStateClose.AddListener(OnStateClosed);
+        GameState?.Begin();
+
+        OnStateChanged?.Invoke(oldGameState, gameStateType);
+
+        Debug.Log($"New game state: {GameState}", gameObject);
     }
 
     private void OnStateClosed()
@@ -54,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     private void AssignNextState()
     {
-        _gameStateType = _gameStateType switch
+        gameStateType = gameStateType switch
         {
             GameStateType.Join => GameStateType.Play
         };
@@ -62,16 +82,16 @@ public class GameManager : MonoBehaviour
 
     private void OnAxisChanged(int number, int channel, double value)
     {
-        if (_gameState == null) return;
-        
-        _gameState.OnAxisChange(number, channel, value);
+        if (GameState == null) return;
+
+        GameState.OnAxisChange(number, channel, value);
     }
 
     private void OnButtonClick(int number, int button, bool state)
     {
-        if (_gameState == null) return;
-        
-        _gameState.OnButtonClick(number, button, state);
+        if (GameState == null) return;
+
+        GameState.OnButtonClick(number, button, state);
     }
 }
 
@@ -81,3 +101,7 @@ public enum GameStateType
     Join,
     Play
 }
+
+[Serializable]
+public class StateChangedEvent : UnityEvent<GameStateType, GameStateType>
+{ }

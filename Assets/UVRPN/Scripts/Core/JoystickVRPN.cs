@@ -4,14 +4,16 @@ using System;
 using UnityEngine;
 using UVRPN.Events;
 using UVRPN.Core;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 //VRPN Input interface class
 //This provides the input for the Main Joypad or the Button Seats  
 public class JoystickVRPN : MonoBehaviour
-{ 
+{
     //Create a custom struct and apply [Serializable] attribute to it
     [Serializable]
-    public struct JoystickInfo{
+    public struct JoystickInfo
+    {
         //name of the vrpn device
         public string tracker;
         //number of butotn on this device
@@ -37,7 +39,7 @@ public class JoystickVRPN : MonoBehaviour
 
     //The client that poolas the server
     public VRPN_Manager vrpnManager;
-    
+
     //Array holding all the joysticks
     public JoystickInfo[] joystickArray;
 
@@ -139,16 +141,35 @@ public class JoystickVRPN : MonoBehaviour
     private void UpdateEditor()
     {
         if (!Application.isEditor) return;
-        
-        //todo: listen for keys
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            OnButtonChange.Invoke(1, 0, true);
-        }
 
-        if (Input.GetKeyUp(KeyCode.Q))
+        var topLeftPressed = Input.GetKey(KeyCode.Keypad7);
+        var topRightPressed = Input.GetKey(KeyCode.Keypad8);
+        var bottomLeftPressed = Input.GetKey(KeyCode.Keypad4);
+        var bottomrightPressed = Input.GetKey(KeyCode.Keypad5);
+
+        int startingIndex = (int)KeyCode.Alpha0;
+
+        for (int i = startingIndex; i < startingIndex + 10; i++)
         {
-            OnButtonChange.Invoke(1, 0, false);
+            int index = i - startingIndex;
+
+            var keyCode = (KeyCode)i;
+            if (Input.GetKeyDown(keyCode))
+            {
+                if(topLeftPressed) OnButtonChange.Invoke(index, 0, true);
+                if (topRightPressed) OnButtonChange.Invoke(index, 1, true);
+                if (bottomLeftPressed) OnButtonChange.Invoke(index, 2, true);
+                if (bottomrightPressed) OnButtonChange.Invoke(index, 3, true);
+            }
+
+            if (Input.GetKeyUp(keyCode))
+            {
+                OnButtonChange.Invoke(index, 0, false);
+                if (topLeftPressed) OnButtonChange.Invoke(index, 0, false);
+                if (topRightPressed) OnButtonChange.Invoke(index, 1, false);
+                if (bottomLeftPressed) OnButtonChange.Invoke(index, 2, false);
+                if (bottomrightPressed) OnButtonChange.Invoke(index, 3, false);
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharactersManager : MonoBehaviour
 {
@@ -7,9 +9,12 @@ public class CharactersManager : MonoBehaviour
     [SerializeField] private Character _characterPrefab;
     
     private Dictionary<int, Character> _characters = new Dictionary<int, Character>();
-    private int _charactersAmount;
     public const int MaxCharactersAmount = 130;
     private JoinState _joinState;
+
+    public int CharactersAmount { private set; get; }
+
+    public PlayerAddedEvent OnPlayerAdded;
 
     public void SubscribeToPlayerCreation(JoinState joinState)
     {
@@ -29,15 +34,23 @@ public class CharactersManager : MonoBehaviour
     {
         //todo: destroy everything
         _characters.Clear();
-        _charactersAmount = 0;
+        CharactersAmount = 0;
     }
     
     public void InstantiatePlayer(int number)
     {
-        Debug.Log("Creating character", gameObject);
+        Debug.Log($"Creating character {number}", gameObject);
         var newCharacter = Instantiate(_characterPrefab, _charactersContainer);
         newCharacter.CharacterId = number;
         _characters.Add(number, newCharacter);
-        _charactersAmount++;
+        CharactersAmount++;
+
+        OnPlayerAdded?.Invoke(CharactersAmount);
     }
+}
+
+[Serializable]
+public class PlayerAddedEvent : UnityEvent<int>
+{
+
 }

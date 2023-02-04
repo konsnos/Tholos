@@ -24,6 +24,7 @@ public class JoinState : BaseGameState
 
     public override void UpdateManual()
     {
+        return; // manual closing from display 1
         if (DateTime.UtcNow <= _endTime)
         {
             int remainingSeconds = (_endTime - DateTime.UtcNow).Seconds;
