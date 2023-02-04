@@ -19,34 +19,40 @@ public class Character : MonoBehaviour
 
         Debug.Log($"Adding force {force} to character {CharacterId}", gameObject);
 
-        _rigidbody.AddForce(force);
+        _rigidbody.AddForce(force, ForceMode.Impulse);
     }
 
     protected Vector3 GetForcePerDirectcion(int channel)
     {
         Vector3 force = new Vector3();
 
-        if (channel == (int)ForceDirectionPerChannel.TopLeft)
+        Debug.Log($"Received channel {channel}");
+
+        if (channel == (int)ForceDirectionPerChannel.ForwardLeft)
         {
+            Debug.Log("Forward Left");
             force.x = -1 * _forceModifier;
             force.z = 1 * _forceModifier;
             return force;
         }
-        if (channel == (int)ForceDirectionPerChannel.TopRight)
+        if (channel == (int)ForceDirectionPerChannel.ForwardRight)
         {
+            Debug.Log("Forward Right");
             force.x = 1 * _forceModifier;
             force.z = 1 * _forceModifier;
             return force;
         }
-        if (channel == (int) ForceDirectionPerChannel.BottomLeft)
+        if (channel == (int) ForceDirectionPerChannel.BackwardLeft)
         {
+            Debug.Log("Backward Left");
             force.x = -1 * _forceModifier;
             force.z = -1 * _forceModifier;
             return force;
         }
-        if(channel == (int) ForceDirectionPerChannel.BottomRight)
+        if(channel == (int) ForceDirectionPerChannel.BackwardRight)
         {
-            force.x = -1 * _forceModifier;
+            Debug.Log("Backward Right");
+            force.x = 1 * _forceModifier;
             force.z = -1 * _forceModifier;
             return force;
         }
@@ -57,8 +63,8 @@ public class Character : MonoBehaviour
 
 public enum ForceDirectionPerChannel
 {
-    TopLeft = 1,
-    TopRight = 2,
-    BottomLeft = 3,
-    BottomRight = 4,
+    ForwardLeft = 0,
+    ForwardRight = 1,
+    BackwardLeft = 2,
+    BackwardRight = 3,
 }
