@@ -76,12 +76,12 @@ public class GameManager : MonoBehaviour
     private void AssignNextState()
     {
         Debug.Log($"Assigning next state from {gameStateType}");
-        gameStateType = gameStateType switch
+        var newNameStateType = gameStateType switch
         {
             GameStateType.Join => GameStateType.Play,
             GameStateType.Play => GameStateType.End,
         };
-        UpdateGameState(gameStateType);
+        UpdateGameState(newNameStateType);
     }
 
     private void OnAxisChanged(int number, int channel, double value)
@@ -96,6 +96,12 @@ public class GameManager : MonoBehaviour
         if (GameState == null) return;
 
         GameState.OnButtonClick(number, button, state);
+    }
+
+    internal void Restart()
+    {
+        Debug.Log("Restart", gameObject);
+        UpdateGameState(GameStateType.Join);
     }
 }
 

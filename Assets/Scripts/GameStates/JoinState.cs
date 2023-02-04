@@ -46,6 +46,7 @@ public class JoinState : BaseGameState
     public override void Begin()
     {
         _playersExisting.Clear();
+        _charactersManager.ResetPlayers();
         _charactersManager.SubscribeToCharacterCreation(this);
 
         StartCounter();

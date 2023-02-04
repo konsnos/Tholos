@@ -38,6 +38,7 @@ public class PlayState : BaseGameState
         if(_charactersManager.Characters.Count <= 0)
         {
             CloseState();
+            return;
         }
 
         if(DateTime.UtcNow < _endTime)
